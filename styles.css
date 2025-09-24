@@ -1,5 +1,4 @@
 /* CSS Variables for Light and Dark Themes */
-:root {
     --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --bg-secondary: rgba(255, 255, 255, 0.1);
     --bg-card: rgba(255, 255, 255, 0.95);
