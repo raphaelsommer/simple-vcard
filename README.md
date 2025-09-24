@@ -40,3 +40,16 @@ Edit the content in `index.html` to personalize:
 - Replace the placeholder profile image URL
 
 The design uses CSS custom properties for easy theme customization in `styles.css`.
+
+## Development
+
+This repository includes GitHub Copilot instructions to help with development. The instructions are configured in `.github/copilot-instructions.md` and provide guidance for:
+
+- Mobile-first responsive design principles
+- Accessibility best practices
+- Clean, semantic HTML structure
+- Modern CSS approaches
+- Performance optimization
+- Contact information features
+
+When using GitHub Copilot in this repository, it will automatically follow these guidelines to maintain consistency and quality.
