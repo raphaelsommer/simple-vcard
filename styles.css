@@ -346,6 +346,70 @@ input:checked + .slider:before {
     animation: sparkle 2s ease-in-out infinite;
 }
 
+/* Profile Stats */
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+    animation: statsSlideIn 1s ease-out 0.8s both;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 20px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    transition: var(--transition-bounce);
+    min-width: 80px;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px var(--shadow-glow);
+}
+
+.stat-item i {
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+}
+
+.stat-item span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Profile Status */
+.profile-status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+.profile-status i {
+    color: #10b981;
+    font-size: 0.7rem;
+    animation: statusBlink 2s ease-in-out infinite;
+}
+
 /* Contact Section */
 .contact-section {
     display: flex;
@@ -418,11 +482,42 @@ input:checked + .slider:before {
     transition: var(--transition);
     font-size: 1.05rem;
     letter-spacing: 0.005em;
+    flex: 1;
 }
 
 .contact-item:hover a {
     color: white;
     font-weight: 600;
+}
+
+/* Action Buttons in Contact Items */
+.copy-btn, .external-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover, .external-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--accent-primary);
+    transform: scale(1.1);
+}
+
+.contact-item:hover .copy-btn,
+.contact-item:hover .external-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Info Sections */
@@ -639,6 +734,92 @@ input:checked + .slider:before {
     margin-bottom: 0;
 }
 
+/* Quick Actions Section */
+.quick-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    animation: actionsSlideIn 1s ease-out 1.2s both;
+}
+
+.action-btn {
+    padding: 16px 28px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    letter-spacing: 0.005em;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.action-btn.primary {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: 
+        0 8px 25px rgba(99, 102, 241, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 12px 35px rgba(99, 102, 241, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.action-btn.secondary {
+    background: var(--bg-glass);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: 
+        0 4px 15px var(--shadow-light),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.action-btn.secondary:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: var(--accent-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: 
+        0 8px 25px var(--shadow-glow),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.action-btn i {
+    font-size: 1.1rem;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
 /* Modern Animations */
 @keyframes cardEntrance {
     0% {
@@ -783,6 +964,46 @@ input:checked + .slider:before {
     }
 }
 
+@keyframes statsSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+    }
+}
+
+@keyframes statusBlink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes actionsSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Legacy animation fallbacks for older code */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -859,6 +1080,15 @@ input:checked + .slider:before {
         height: 140px;
     }
 
+    .profile-stats {
+        gap: 20px;
+    }
+
+    .stat-item {
+        padding: 12px 16px;
+        min-width: 70px;
+    }
+
     .info-section {
         padding: 25px;
         margin-bottom: 24px;
@@ -892,6 +1122,19 @@ input:checked + .slider:before {
         padding: 8px 14px;
         font-size: 0.85rem;
     }
+
+    .quick-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .action-btn {
+        padding: 14px 24px;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -913,6 +1156,17 @@ input:checked + .slider:before {
         height: 120px;
     }
 
+    .profile-stats {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        padding: 10px 14px;
+        min-width: 65px;
+        font-size: 0.8rem;
+    }
+
     .info-section {
         padding: 22px;
     }
@@ -922,14 +1176,19 @@ input:checked + .slider:before {
     }
 
     .contact-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-        padding: 20px;
+        padding: 16px 18px;
+        gap: 14px;
     }
 
-    .contact-item:hover {
-        transform: translateY(-3px) scale(1.01);
+    .contact-item a {
+        font-size: 0.95rem;
+    }
+
+    .copy-btn, .external-btn {
+        padding: 6px;
+        min-width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
     }
 
     .theme-toggle {
@@ -945,6 +1204,16 @@ input:checked + .slider:before {
     .tag {
         padding: 7px 12px;
         font-size: 0.8rem;
+    }
+
+    .action-btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+
+    .profile-status {
+        padding: 4px 8px;
+        font-size: 0.7rem;
     }
 }
 

@@ -6,6 +6,8 @@
     <title>V-Card - Professional Profile</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="Professional vCard for Raphael Sommer - Software Developer & Tech Enthusiast">
 </head>
 <body>
     <div class="theme-toggle">
@@ -23,9 +25,27 @@
             <div class="profile-section">
                 <div class="profile-image-container">
                     <img src="https://via.placeholder.com/150x150/4A90E2/ffffff?text=RS" alt="Profile Picture" class="profile-image">
+                    <div class="profile-status">
+                        <i class="fas fa-circle"></i>
+                        <span>Available</span>
+                    </div>
                 </div>
                 <h1 class="name">Raphael Sommer</h1>
                 <p class="title">Software Developer & Tech Enthusiast</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-code"></i>
+                        <span>5+ Years</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>50+ Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Expert Level</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Contact Section -->
@@ -33,10 +53,16 @@
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:raphael@example.com">raphael@example.com</a>
+                    <button class="copy-btn" onclick="copyToClipboard('raphael@example.com')">
+                        <i class="fas fa-copy"></i>
+                    </button>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
                     <a href="https://linkedin.com/in/raphaelsommer" target="_blank">linkedin.com/in/raphaelsommer</a>
+                    <button class="external-btn">
+                        <i class="fas fa-external-link-alt"></i>
+                    </button>
                 </div>
             </div>
 
@@ -89,6 +115,18 @@
                         where innovation thrives through diversity and shared knowledge.
                     </p>
                 </div>
+            </div>
+
+            <!-- Quick Actions Section -->
+            <div class="quick-actions">
+                <button class="action-btn primary" onclick="window.location.href='mailto:raphael@example.com'">
+                    <i class="fas fa-paper-plane"></i>
+                    Get in Touch
+                </button>
+                <button class="action-btn secondary" onclick="downloadVCard()">
+                    <i class="fas fa-download"></i>
+                    Download vCard
+                </button>
             </div>
         </div>
     </div>

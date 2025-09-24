@@ -300,6 +300,82 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🎨 V-Card initialized with modern interactions and theme support!');
 });
 
+// Copy to clipboard function
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('Copied to clipboard!', 'success');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        showNotification('Failed to copy', 'error');
+    });
+}
+
+// Download vCard function
+function downloadVCard() {
+    const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Raphael Sommer
+ORG:Tech Solutions Inc.
+TITLE:Senior Software Developer
+EMAIL:raphael@example.com
+URL:https://linkedin.com/in/raphaelsommer
+NOTE:Software Developer & Tech Enthusiast. Passionate about creating technology that makes a positive impact.
+END:VCARD`;
+
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'raphael-sommer.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+    
+    showNotification('vCard downloaded!', 'success');
+}
+
+// Show notification function
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 25px;
+        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#6366f1'};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        z-index: 2000;
+        transform: translateX(100%);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Slide in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Slide out and remove
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
 // Add some easter eggs for fun
 document.addEventListener('keydown', (e) => {
     // Konami code easter egg
@@ -313,7 +389,7 @@ document.addEventListener('keydown', (e) => {
     
     if (JSON.stringify(window.konamiSequence) === JSON.stringify(konamiCode)) {
         document.querySelector('.vcard').style.animation = 'pulse 0.5s ease-in-out 3';
-        console.log('🎉 Easter egg activated!');
+        showNotification('🎉 Easter egg activated!', 'success');
         window.konamiSequence = [];
     }
 });
