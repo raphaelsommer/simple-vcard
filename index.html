@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Card - Professional Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle">
+        <i class="fas fa-sun"></i>
+        <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="container">
+        <div class="vcard">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <img src="https://via.placeholder.com/150x150/4A90E2/ffffff?text=RS" alt="Profile Picture" class="profile-image">
+                </div>
+                <h1 class="name">Raphael Sommer</h1>
+                <p class="title">Software Developer & Tech Enthusiast</p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:raphael@example.com">raphael@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/raphaelsommer" target="_blank">linkedin.com/in/raphaelsommer</a>
+                </div>
+            </div>
+
+            <!-- Current Work Section -->
+            <div class="info-section">
+                <h2><i class="fas fa-briefcase"></i> Current Work</h2>
+                <div class="info-content">
+                    <h3>Senior Software Developer</h3>
+                    <p class="company">Tech Solutions Inc.</p>
+                    <p class="description">Leading development of modern web applications using React, Node.js, and cloud technologies. Focused on creating scalable solutions and mentoring junior developers.</p>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="info-section">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div class="info-content">
+                    <h3>Master of Computer Science</h3>
+                    <p class="company">University of Technology</p>
+                    <p class="description">Specialized in Software Engineering and AI. Graduated with honors, focusing on machine learning applications in web development.</p>
+                </div>
+            </div>
+
+            <!-- Ask Me About Section -->
+            <div class="info-section">
+                <h2><i class="fas fa-question-circle"></i> Ask Me About</h2>
+                <div class="tags-container">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Cloud Computing</span>
+                    <span class="tag">API Design</span>
+                    <span class="tag">DevOps</span>
+                    <span class="tag">Agile</span>
+                </div>
+            </div>
+
+            <!-- Passion/Vision Section -->
+            <div class="info-section passion-section">
+                <h2><i class="fas fa-heart"></i> My Passion & Vision</h2>
+                <div class="info-content">
+                    <p class="passion-text">
+                        I'm passionate about creating technology that makes a positive impact on people's lives. 
+                        My vision is to bridge the gap between complex technical solutions and intuitive user experiences, 
+                        making technology accessible and delightful for everyone.
+                    </p>
+                    <p class="passion-text">
+                        I believe in continuous learning, open-source collaboration, and building inclusive tech communities 
+                        where innovation thrives through diversity and shared knowledge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
